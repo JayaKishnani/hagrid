@@ -1,6 +1,6 @@
 dataset:
-  annotations: /path/to/annotations/
-  dataset: /path/to/dataset
+  annotations: /content/hagrid/ann_subsample
+  dataset: /content/hagrid/subsample
   targets:
     - call
     - dislike
@@ -25,13 +25,13 @@ dataset:
   subset: 2000
 random_state: 42
 device: 'cpu'
-experiment_name: MobileNetV3_small
+experiment_name: ResNext101
 model:
-  name: 'MobileNetV3_small'  # 'MobileNetV3_large' or 'MobileNetV3_small' or 'ResNet18'
+  name: 'ResNext101'  # 'MobileNetV3_large' or 'MobileNetV3_small' or 'ResNet18'
   pretrained: False
   freezed: False
   start_epoch: 0
-  checkpoint: /path/to/chackpoint
+  checkpoint: https://sc.link/JXmg
 optimizer:
   lr: 0.005
   momentum: 0.9
