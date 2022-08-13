@@ -2,6 +2,7 @@ import torch
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 from typing import Dict
 from torch import Tensor
@@ -60,6 +61,7 @@ def get_metrics(targets: Tensor, predicts: Tensor, conf: DictConfig, epoch: int,
         df_cm = pd.DataFrame(cm, index=[i for i in class_names], columns=[i for i in class_names])
 
         plt.figure(figsize=(16, 12))
-        hm = sns.heatmap(df_cm, annot=True, fmt='.5g', cmap="YlGnBu").get_figure()
-        writer.add_figure(f"Confusion matrix for {target}", hm, epoch)
+        df_cm.fillna(value=np.nan, inplace=True)
+        #hm = sns.heatmap(df_cm, annot=True, fmt='.5g', cmap="YlGnBu").get_figure()
+        #writer.add_figure(f"Confusion matrix for {target}", hm, epoch)
     return needed_scores
