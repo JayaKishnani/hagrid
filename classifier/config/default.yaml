@@ -38,7 +38,7 @@ optimizer:
 scheduler:
   start_factor: 0.001
 train_params:
-  epochs: 10
+  epochs: 100
   num_workers: 2
   train_batch_size: 32
   test_batch_size: 32
