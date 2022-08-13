@@ -54,7 +54,12 @@ def add_params_to_tensorboard(writer: SummaryWriter, params: Dict, epoch: int, o
     """
     for param, value in params.items():
         if param not in not_logging:
-            writer.add_scalar(f'{obj}/{param}', value, epoch)
+            print(obj, param, value, epoch)
+            a = str(type(value))
+            print(a)
+            if(a != "<class 'NoneType'>"):
+                #print(type(value))
+                writer.add_scalar(f'{obj}/{param}', value, epoch)
 
 
 def set_random_state(random_seed: int) -> None:
